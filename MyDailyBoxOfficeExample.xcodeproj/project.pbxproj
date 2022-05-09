@@ -7,23 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6366752829487500172A1A /* DailyBoxOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366732829487500172A1A /* DailyBoxOfficeViewController.swift */; };
+		1B63667928294A0B00172A1A /* DailyBoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B63667728294A0B00172A1A /* DailyBoxOfficeTableViewCell.swift */; };
+		1B63667A28294A0B00172A1A /* DailyBoxOfficeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B63667828294A0B00172A1A /* DailyBoxOfficeTableViewCell.xib */; };
 		1BDA031628293E6400E75205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA031528293E6400E75205 /* AppDelegate.swift */; };
 		1BDA031828293E6400E75205 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA031728293E6400E75205 /* SceneDelegate.swift */; };
-		1BDA031A28293E6400E75205 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA031928293E6400E75205 /* ViewController.swift */; };
 		1BDA031D28293E6400E75205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA031B28293E6400E75205 /* Main.storyboard */; };
 		1BDA031F28293E6600E75205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA031E28293E6600E75205 /* Assets.xcassets */; };
 		1BDA032228293E6600E75205 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA032028293E6600E75205 /* LaunchScreen.storyboard */; };
+		1BDA032B28293E7A00E75205 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA032A28293E7A00E75205 /* SwiftyJSON */; };
+		1BDA032E28293E8600E75205 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA032D28293E8600E75205 /* Alamofire */; };
+		1BDA033128293EE300E75205 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA033028293EE300E75205 /* TextFieldEffects */; };
+		1BDA0337282941D000E75205 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA0336282941D000E75205 /* Constants.swift */; };
+		1BDA033E282942EF00E75205 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA033D282942EF00E75205 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B6366732829487500172A1A /* DailyBoxOfficeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBoxOfficeViewController.swift; sourceTree = "<group>"; };
+		1B63667728294A0B00172A1A /* DailyBoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
+		1B63667828294A0B00172A1A /* DailyBoxOfficeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyBoxOfficeTableViewCell.xib; sourceTree = "<group>"; };
 		1BDA031228293E6400E75205 /* MyDailyBoxOfficeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDailyBoxOfficeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDA031528293E6400E75205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BDA031728293E6400E75205 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BDA031928293E6400E75205 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1BDA031C28293E6400E75205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BDA031E28293E6600E75205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BDA032128293E6600E75205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BDA032328293E6600E75205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BDA0336282941D000E75205 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1BDA033D282942EF00E75205 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BDA033128293EE300E75205 /* TextFieldEffects in Frameworks */,
+				1BDA032B28293E7A00E75205 /* SwiftyJSON in Frameworks */,
+				1BDA032E28293E8600E75205 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +70,35 @@
 		1BDA031428293E6400E75205 /* MyDailyBoxOfficeExample */ = {
 			isa = PBXGroup;
 			children = (
+				1BDA033D282942EF00E75205 /* Movie.swift */,
 				1BDA031528293E6400E75205 /* AppDelegate.swift */,
 				1BDA031728293E6400E75205 /* SceneDelegate.swift */,
-				1BDA031928293E6400E75205 /* ViewController.swift */,
 				1BDA031B28293E6400E75205 /* Main.storyboard */,
 				1BDA031E28293E6600E75205 /* Assets.xcassets */,
 				1BDA032028293E6600E75205 /* LaunchScreen.storyboard */,
+				1BDA03402829476400E75205 /* DailyBoxOffice */,
 				1BDA032328293E6600E75205 /* Info.plist */,
+				1BDA0338282941FA00E75205 /* Constants */,
 			);
 			path = MyDailyBoxOfficeExample;
+			sourceTree = "<group>";
+		};
+		1BDA0338282941FA00E75205 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1BDA0336282941D000E75205 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1BDA03402829476400E75205 /* DailyBoxOffice */ = {
+			isa = PBXGroup;
+			children = (
+				1B6366732829487500172A1A /* DailyBoxOfficeViewController.swift */,
+				1B63667728294A0B00172A1A /* DailyBoxOfficeTableViewCell.swift */,
+				1B63667828294A0B00172A1A /* DailyBoxOfficeTableViewCell.xib */,
+			);
+			path = DailyBoxOffice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +117,11 @@
 			dependencies = (
 			);
 			name = MyDailyBoxOfficeExample;
+			packageProductDependencies = (
+				1BDA032A28293E7A00E75205 /* SwiftyJSON */,
+				1BDA032D28293E8600E75205 /* Alamofire */,
+				1BDA033028293EE300E75205 /* TextFieldEffects */,
+			);
 			productName = MyDailyBoxOfficeExample;
 			productReference = 1BDA031228293E6400E75205 /* MyDailyBoxOfficeExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +150,11 @@
 				Base,
 			);
 			mainGroup = 1BDA030928293E6400E75205;
+			packageReferences = (
+				1BDA032928293E7A00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				1BDA032C28293E8600E75205 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				1BDA032F28293EE300E75205 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+			);
 			productRefGroup = 1BDA031328293E6400E75205 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,6 +172,7 @@
 				1BDA032228293E6600E75205 /* LaunchScreen.storyboard in Resources */,
 				1BDA031F28293E6600E75205 /* Assets.xcassets in Resources */,
 				1BDA031D28293E6400E75205 /* Main.storyboard in Resources */,
+				1B63667A28294A0B00172A1A /* DailyBoxOfficeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +183,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BDA031A28293E6400E75205 /* ViewController.swift in Sources */,
+				1BDA0337282941D000E75205 /* Constants.swift in Sources */,
+				1BDA033E282942EF00E75205 /* Movie.swift in Sources */,
 				1BDA031628293E6400E75205 /* AppDelegate.swift in Sources */,
+				1B63667928294A0B00172A1A /* DailyBoxOfficeTableViewCell.swift in Sources */,
+				1B6366752829487500172A1A /* DailyBoxOfficeViewController.swift in Sources */,
 				1BDA031828293E6400E75205 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +404,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BDA032928293E7A00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1BDA032C28293E8600E75205 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1BDA032F28293EE300E75205 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BDA032A28293E7A00E75205 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA032928293E7A00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		1BDA032D28293E8600E75205 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA032C28293E8600E75205 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		1BDA033028293EE300E75205 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA032F28293EE300E75205 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1BDA030A28293E6400E75205 /* Project object */;
 }
