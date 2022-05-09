@@ -17,7 +17,7 @@ class DailyBoxOfficeViewController: UIViewController {
     
     var dailyBoxOfficeList : [Movie] = [] {
         didSet {
-            
+            dailyBoxOfficeTableView.reloadData()
         }
     }
     
@@ -25,6 +25,7 @@ class DailyBoxOfficeViewController: UIViewController {
         super.viewDidLoad()
 
         dailyBoxOfficeTableViewConfig()
+        currentDayConfig()
     }
     
     func dailyBoxOfficeTableViewConfig() {
@@ -39,11 +40,45 @@ class DailyBoxOfficeViewController: UIViewController {
     }
     
     @IBAction func searchButtonClicked(_ sender: UIButton) {
-        
+        fetchDailyBoxOffice(targetDt: searchTextField.text!)
     }
     
-    func fetchDailyBoxOffice() {
+    func fetchDailyBoxOffice(targetDt: String) {
         
+        let url = URL(string: Constants.API.boxofficeUrl(targetDt: targetDt))
+        
+        AF.request(url!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                let dailyBoxOfficeList = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue
+                
+                let boxOfficeData: [Movie] = dailyBoxOfficeList.map {
+                    Movie(rank: $0["rank"].stringValue,
+                          movieNm: $0["movieNm"].stringValue,
+                          openDt: $0["openDt"].stringValue)
+                }
+                
+                self.dailyBoxOfficeList.removeAll()
+                self.dailyBoxOfficeList.append(contentsOf: boxOfficeData)
+                
+            case .failure(let error):
+                print("")
+            }
+        }
+    }
+    
+    func currentDayConfig() {
+        guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else {
+            return
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        let dateString = formatter.string(from: yesterday)
+        fetchDailyBoxOffice(targetDt: dateString)
     }
     
 }
@@ -52,13 +87,13 @@ class DailyBoxOfficeViewController: UIViewController {
 extension DailyBoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dailyBoxOfficeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TabelViewCell.DailyBoxOfficeTableViewCell, for: indexPath) as! DailyBoxOfficeTableViewCell
         
-        //cell.bindData(movie: dailyBoxOfficeList[indexPath.row])
+        cell.bindData(movie: dailyBoxOfficeList[indexPath.row])
         return cell
     }
     

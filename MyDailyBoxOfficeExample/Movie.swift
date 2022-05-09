@@ -11,5 +11,4 @@ struct Movie {
     var rank: String
     var movieNm: String
     var openDt: String
-    var searchDate: String
 }

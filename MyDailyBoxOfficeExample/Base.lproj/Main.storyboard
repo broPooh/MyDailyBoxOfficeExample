@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="20201011" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8H-8b-gaa" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="날짜를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8H-8b-gaa" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="20" y="64" width="294" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OiD-32-dLW"/>
@@ -85,7 +85,7 @@
     </scenes>
     <designables>
         <designable name="H8H-8b-gaa">
-            <size key="intrinsicContentSize" width="108.5" height="31.5"/>
+            <size key="intrinsicContentSize" width="200.5" height="31.5"/>
         </designable>
     </designables>
     <resources>
