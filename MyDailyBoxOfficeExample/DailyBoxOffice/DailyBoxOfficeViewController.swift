@@ -9,13 +9,22 @@ import UIKit
 import TextFieldEffects
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class DailyBoxOfficeViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: HoshiTextField!
     @IBOutlet weak var dailyBoxOfficeTableView: UITableView!
     
-    var dailyBoxOfficeList : [Movie] = [] {
+//    var dailyBoxOfficeList : [Movie] = [] {
+//        didSet {
+//            dailyBoxOfficeTableView.reloadData()
+//        }
+//    }
+    
+    let localRealm = try? Realm()
+    
+    var dailyBoxOfficeRealmList: List<BoxOffice> = List<BoxOffice>() {
         didSet {
             dailyBoxOfficeTableView.reloadData()
         }
@@ -54,18 +63,37 @@ class DailyBoxOfficeViewController: UIViewController {
                 print(json)
                 let dailyBoxOfficeList = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue
                 
-                let boxOfficeData: [Movie] = dailyBoxOfficeList.map {
-                    Movie(rank: $0["rank"].stringValue,
-                          movieNm: $0["movieNm"].stringValue,
-                          openDt: $0["openDt"].stringValue)
+//                let boxOfficeData: [Movie] = dailyBoxOfficeList.map {
+//                    Movie(rank: $0["rank"].stringValue,
+//                          movieNm: $0["movieNm"].stringValue,
+//                          openDt: $0["openDt"].stringValue)
+//                }
+                
+                self.dailyBoxOfficeRealmList.removeAll()
+                
+                let boxOfficeList = List<BoxOffice>()
+                dailyBoxOfficeList.forEach {
+                    boxOfficeList.append(BoxOffice(rank: $0["rank"].stringValue,
+                                                         movieNm: $0["movieNm"].stringValue,
+                                                         openDt: $0["openDt"].stringValue))
                 }
                 
-                self.dailyBoxOfficeList.removeAll()
-                self.dailyBoxOfficeList.append(contentsOf: boxOfficeData)
+            
+                let boxOfficeResult = BoxOfficeResult(boxOfficeDate: targetDt, dailyBoxOfficeList: boxOfficeList)
+                self.createRealmData(boxOffcieResult: boxOfficeResult)
+                self.dailyBoxOfficeRealmList.append(objectsIn: boxOfficeList)
+                //self.dailyBoxOfficeList.removeAll()
+                //self.dailyBoxOfficeList.append(contentsOf: boxOfficeData)
                 
             case .failure(let error):
-                print("")
+                print(error)
             }
+        }
+    }
+    
+    func createRealmData(boxOffcieResult: BoxOfficeResult) {
+        try! localRealm?.write {
+            localRealm?.add(boxOffcieResult)
         }
     }
     
@@ -78,7 +106,19 @@ class DailyBoxOfficeViewController: UIViewController {
         formatter.dateFormat = "yyyyMMdd"
         
         let dateString = formatter.string(from: yesterday)
-        fetchDailyBoxOffice(targetDt: dateString)
+        
+
+        guard let boxOfficeResult = localRealm?.objects(BoxOfficeResult.self).filter("boxOfficeDate == \'\(dateString)\'").first else {
+            fetchDailyBoxOffice(targetDt: dateString)
+            return
+        }
+        
+        readRealmData(boxOfficeResult: boxOfficeResult)
+        
+    }
+    
+    func readRealmData(boxOfficeResult: BoxOfficeResult) {
+        dailyBoxOfficeRealmList.append(objectsIn: boxOfficeResult.dailyBoxOfficeList)
     }
     
 }
@@ -87,13 +127,14 @@ class DailyBoxOfficeViewController: UIViewController {
 extension DailyBoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyBoxOfficeList.count
+        return dailyBoxOfficeRealmList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TabelViewCell.DailyBoxOfficeTableViewCell, for: indexPath) as! DailyBoxOfficeTableViewCell
         
-        cell.bindData(movie: dailyBoxOfficeList[indexPath.row])
+        //cell.bindData(movie: dailyBoxOfficeList[indexPath.row])
+        cell.bindBoxOfficeData(boxOffice: dailyBoxOfficeRealmList[indexPath.row])
         return cell
     }
     

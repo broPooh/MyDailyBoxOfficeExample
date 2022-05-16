@@ -31,4 +31,10 @@ class DailyBoxOfficeTableViewCell: UITableViewCell {
         dateLabel.text = movie.openDt
     }
     
+    func bindBoxOfficeData(boxOffice: BoxOffice) {
+        rankLabel.text = boxOffice.rank
+        titleLabel.text = boxOffice.movieNm
+        dateLabel.text = boxOffice.openDt
+    }
+    
 }
