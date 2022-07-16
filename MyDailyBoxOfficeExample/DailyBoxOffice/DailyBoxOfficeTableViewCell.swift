@@ -17,7 +17,12 @@ class DailyBoxOfficeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
-
+        print("🍀 awakeFromNib 🍀")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("🍁 prepareForReuse 🍁")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

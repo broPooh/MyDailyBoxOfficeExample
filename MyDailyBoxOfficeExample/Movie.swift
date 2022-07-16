@@ -7,8 +7,18 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Hashable {
     var rank: String
     var movieNm: String
     var openDt: String
+    
+    let identifier = UUID()
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }

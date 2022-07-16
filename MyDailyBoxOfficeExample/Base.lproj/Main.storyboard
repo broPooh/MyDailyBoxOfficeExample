@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U8m-VX-JMN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -80,10 +80,87 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="520" y="86"/>
+            <point key="canvasLocation" x="104" y="79"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="ofM-nn-zte">
+            <objects>
+                <viewController storyboardIdentifier="TestViewController" id="U8m-VX-JMN" customClass="TestViewController" customModule="MyDailyBoxOfficeExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i26-cn-QzR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="20201010" placeholder="날짜를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Asg-17-gng" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="20" y="64" width="294" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gwf-P7-fvx"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                        <color key="value" systemColor="systemYellowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" systemColor="systemBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xU-nB-RoF">
+                                <rect key="frame" x="324" y="64" width="70" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4z1-kj-CZu"/>
+                                    <constraint firstAttribute="width" constant="70" id="rOS-E2-XP0"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="검색">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testSearchButtonClicked:" destination="U8m-VX-JMN" eventType="touchUpInside" id="4ka-3P-Uft"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hzi-5g-LOx">
+                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NbQ-nR-C5U"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="Asg-17-gng" firstAttribute="top" secondItem="NbQ-nR-C5U" secondAttribute="top" constant="20" id="9dh-9W-k5W"/>
+                            <constraint firstItem="hzi-5g-LOx" firstAttribute="top" secondItem="Asg-17-gng" secondAttribute="bottom" constant="20" id="Kju-tD-MHp"/>
+                            <constraint firstItem="1xU-nB-RoF" firstAttribute="top" secondItem="NbQ-nR-C5U" secondAttribute="top" constant="20" id="Odg-4P-w83"/>
+                            <constraint firstItem="NbQ-nR-C5U" firstAttribute="trailing" secondItem="hzi-5g-LOx" secondAttribute="trailing" id="PQ5-5E-Z1H"/>
+                            <constraint firstItem="NbQ-nR-C5U" firstAttribute="trailing" secondItem="1xU-nB-RoF" secondAttribute="trailing" constant="20" id="ijL-HO-vFu"/>
+                            <constraint firstItem="1xU-nB-RoF" firstAttribute="leading" secondItem="Asg-17-gng" secondAttribute="trailing" constant="10" id="kYj-U4-8P0"/>
+                            <constraint firstItem="Asg-17-gng" firstAttribute="leading" secondItem="NbQ-nR-C5U" secondAttribute="leading" constant="20" id="unS-Zs-Nl4"/>
+                            <constraint firstItem="NbQ-nR-C5U" firstAttribute="bottom" secondItem="hzi-5g-LOx" secondAttribute="bottom" id="wF2-zF-Jhy"/>
+                            <constraint firstItem="hzi-5g-LOx" firstAttribute="leading" secondItem="NbQ-nR-C5U" secondAttribute="leading" id="whO-u9-1kr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testSearchTextField" destination="Asg-17-gng" id="3aK-OB-xp6"/>
+                        <outlet property="testdailyBoxOfficeTableView" destination="hzi-5g-LOx" id="wqf-2E-3Jt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUK-iZ-itN" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="89"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="Asg-17-gng">
+            <size key="intrinsicContentSize" width="200.5" height="31.5"/>
+        </designable>
         <designable name="H8H-8b-gaa">
             <size key="intrinsicContentSize" width="200.5" height="31.5"/>
         </designable>
